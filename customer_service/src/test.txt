@@ -1,0 +1,15 @@
+curl -X GET -H "Content-Type: application/json" -d '{"start_date": "2023-01-01", "end_date": "2023-01-31", "business_names": ["Fidelity Bank PLC", "Kredi bank"]}' http://127.0.0.1:5000/get_address_report
+
+curl -X GET -H "Content-Type: application/json" -d '{"start_date": "2023-01-01", "end_date": "2023-01-31", "business_names": ["Fidelity Bank PLC", "Kredi bank"]}' http://yv-report-aut-app.azurewebsites.net/get_address_report
+
+curl -X GET 'http://yv-report-aut-app.azurewebsites.net/get_address_report?start_date=2023-01-01&end_date=2023-01-31&business_names=Fidelity%20Bank%20PLC%2CKredi%20bank'
+
+http://yv-report-aut-app.azurewebsites.net/get_address_report?start_date=2023-01-01&end_date=2023-01-31&business_names=Fidelity%20Bank%20PLC&business_names=Kredi%20bank
+
+
+
+gunicorn -c gunicorn_config.py service:app
+
+http://127.0.0.1:5000/get_business_address_data
+http://0.0.0.0:8000/get_business_address_data
+http://192.168.215.223:8000/get_business_address_data

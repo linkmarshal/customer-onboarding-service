@@ -1,0 +1,800 @@
+openapi: 3.0.0
+info:
+  title: YV Report Automation
+  version: 1.0.0
+  description: This endpoint enable end users generate business reports 
+
+paths:
+  /get_address_report:
+    get:
+      summary: Get Address Report
+      description: Retrieve address reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressReport'
+              example:
+                ReportID: "45yuygegher663"
+                Candidate_Name: "John Doe"
+                Address: "No. 5 Adebisi Street, Yaba, Lagos"
+                Status: "Completed"
+                Task_Status: "verified"
+                State: "Lagos"
+                City: "Yaba"
+                Reason: ""
+                Created_At: "2023-09-18"
+                Submitted_At: "2023-09-18"
+  /get_identity_report:
+    get:
+      summary: Get Identity Report
+      description: Retrieve identity reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityReport'
+              example:
+                ReportID: "TY57676UIITYTTRFRY"
+                Candidate_Name: "John Doe"
+                ID_Type: "NIN"
+                ID_Number: "85783748374827"
+                Status: "found"
+                Comment: ""
+                Initiated_By: ""
+                Requested_At: "2023-5-6"
+
+  /get_livenessCheck_report:
+    get:
+      summary: Get Liveness Check Report
+      description: Retrieve liveness check reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LivenessCheckReport'
+              example:
+                ReportID: "TY57676UIITYTTRFRY"
+                Business_Name: "Youverify"
+                Method: "liveness"
+                Passed: 1
+                Created_At: "2023-5-6"
+                Requested_At: "2023-5-6"
+  
+  /get_documentCaptures_report:
+    get:
+      summary: Get Document Captures report
+      description: Retrieve document captures reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentCapturesReport'
+              example:
+                ReportID: "TY57676UIITYTTRFRY"
+                FirstName: "John"
+                LastName: "Doe"
+                Document_Type: "passport"
+                Method: "documentCapture"
+                Status: "ACTIVE"
+                Created_At: "2023-5-6"
+                Requested_At: "2023-4-5"
+
+  /get_CAC_report:
+    get:
+      summary: Get CAC Report
+      description: Retrieve CAC reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CACReport'
+              example:
+                ReportID: "TY57676UIITYTTRFRY"
+                Company_Name: "Youverify"
+                Registration_Number: "TYR8976V"
+                Status: "found"
+                Company_Status: "ACTIVE"
+                Initiated_By: "apiuser"
+                Requested_At: "2023-5-6"
+
+  /get_adverseMedia_report:
+    get:
+      summary: Get Adverse Media Report
+      description: Retrieve adverse media reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdverseMediaReport'
+              example:
+                ReportID: "4r808heihejheiuieuui"
+                Business: "Youverify"
+                Status: "no-match-found"
+                Initiated_By: ""
+                Email: ""
+                Requested_At: "2023-6-7"
+
+  /get_pendingAddress_report:
+    get:
+      summary: Get Pending Address Report
+      description: Retrieve pending address reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PendingAddressReport'
+              example:
+                Customer: "Youverify"
+                ReportID: "4r808heihejheiuieuui"
+                Candidate_Name: "John Doe"
+                Status: "Pending"
+                Task_Status: "pending"
+                Address: "Shopping complex"
+                State: "Lagos"
+                City: "Yaba"
+                Initiated_By: "John"
+                Created_At: "2023-7-7"
+                Submitted_At: "2023-7-7"
+
+  /get_rejectedAddress_report:
+    get:
+      summary: Get Rejected Address Report
+      description: Retrieve rejected address reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RejectedAddressReport'
+              example:
+                ReportID: "4r808heihejheiuieuui"
+                Business: "Youverify"
+                Candidate_Name: "John Doe"
+                Task_Status: "Pending"
+                Status: "Verified"
+                State: "Lagos"
+                City: "Yaba"
+                Initiated_At: "2023-7-7"
+                Created_At: "2023-5-7"
+                LastModified_At: "2023-6-7"
+                Initiated_By: "John"
+
+  /get_completedAddress_report:
+    get:
+      summary: Get Completed Address Report
+      description: Retrieve completed address reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletedAddressReport'
+              example:
+                FirstName: "John"
+                LastName: "Doe"
+                ReportID: "4r808heihejheiuieuui"
+                Status: "completed"
+                State: "Lagos"
+                City: "Yaba"
+                Initiated_By: "John"
+                Submitted_At: "2023-5-4"
+
+
+  /get_balance_lastActivity_report:
+    get:
+      summary: Get Balance and Last Activity Report
+      description: Retrieve Balance and Last Activity reports based on specified parameters.
+      parameters:
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance&LastActivityReport'
+              example:
+                id: "4r808heihejheiuieuui"
+                Customers: "Youverify"
+                Contact_Person_Email: "contact@business.com"
+                Last_Activity: "2013-4-16"
+                Available_Balance: 500.0
+
+  /get_businessServices_report:
+    get:
+      summary: Get Business Services Report
+      description: Retrieve business services reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessServicesReport'
+              example:
+                amls: 0
+                businessName: "Youverify"
+                vforms: 0
+                vnin: 0
+                nin: 0
+                bvn: 0
+                id: 0
+                passport: 0
+                cac: 0
+                tins: 0
+                documentCaptures: 0
+                address: 0
+                adverseMedia: 0
+                ndl: 0
+                livenessCheck: 0
+
+  /get_businessServices_monthly_report:
+    get:
+      summary: Get Business Services Monthly Report
+      description: Retrieve business services monthly reports based on specified parameters.
+      parameters:
+        - name: start_date
+          in: query
+          description: Start date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date for the report
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: business_names
+          in: query
+          description: Names of businesses to include in the report
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessServicesMonthlyReport'
+              example:
+                amls: 0
+                businessName: "Youverify"
+                vforms: 0
+                year: 2023
+                vnin: 0
+                nin: 0
+                bvn: 0
+                id: 0
+                passport: 0
+                cac: 0
+                tins: 0
+                documentCaptures: 0
+                address: 0
+                adverseMedia: 0
+                ndl: 0
+                livenessCheck: 0
+                month: 11
+
+components:
+  schemas:
+    AddressReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Candidate_Name:
+          type: string
+        Address:
+          type: string
+        Status:
+          type: string
+        Task_Status:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        Reason:
+          type: string
+        Created_At:
+          type: string
+        Submitted_At:
+          type: string
+    IdentityReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Candidate_Name:
+          type: string
+        ID_Type:
+          type: string
+        ID_Number:
+          type: string
+        Status:
+          type: string
+        Comment:
+          type: string
+        Initiated_By:
+          type: string
+        Requested_At:
+          type: string
+    DocumentCapturesReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Document_Type:
+          type: string
+        Method:
+          type: string
+        Status:
+          type: string
+        Created_At:
+          type: string
+        Requested_At:
+          type: string
+    LivenessCheckReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Business_Name:
+          type: string
+        Method:
+          type: string
+        Passed:
+          type: integer
+        Created_At:
+          type: string
+        Requested_At:
+          type: string
+    CACReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Company_Name:
+          type: string
+        Registration_Number:
+          type: string
+        Status:
+          type: string
+        Company_Status:
+          type: string
+        Initiated_By:
+          type: string
+        Requested_At:
+          type: string
+    AdverseMediaReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Business:
+          type: string
+        Status:
+          type: string
+        Initiated_By:
+          type: string
+        Email:
+          type: string
+        Requested_At:
+          type: string
+    PendingAddressReport:
+      type: object
+      properties:
+        Customer:
+          type: string
+        ReportID:
+          type: string
+        Candidate_Name:
+          type: string
+        Status:
+          type: string
+        Task_Status:
+          type: string
+        Address:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        Initiated_By:
+          type: string
+        Created_At:
+          type: string
+        Submitted_At:
+          type: string
+    RejectedAddressReport:
+      type: object
+      properties:
+        ReportID:
+          type: string
+        Business:
+          type: string
+        Candidate_Name:
+          type: string
+        Task_Status:
+          type: string
+        Status:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        Initiated_At:
+          type: string
+        Created_At:
+          type: string
+        LastModified_At:
+          type: string
+        Initiated_By:
+          type: string
+    CompletedAddressReport:
+      type: object
+      properties:
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        ReportID:
+          type: string
+        Status:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        Initiated_By:
+          type: string
+        Submitted_At:
+          type: string
+    Balance&LastActivityReport:
+      type: object
+      properties:
+        id:
+          type: string
+        Customers:
+          type: string
+        Contact_Person_Email:
+          type: string
+        Last_Activity:
+          type: string
+        Available_Balance:
+          type: number
+          format: float
+    BusinessServicesMonthlyReport:
+      type: object
+      properties:
+        amls:
+          type: integer
+        businessName:
+          type: string
+        vforms:
+          type: integer
+        year:
+          type: integer
+        vnin:
+          type: integer
+        nin:
+          type: integer
+        bvn:
+          type: integer
+        id:
+          type: string
+        passport:
+          type: integer
+        cac:
+          type: integer
+        tins:
+          type: integer
+        documentCaptures:
+          type: integer
+        address:
+          type: integer
+        adverseMedia:
+          type: integer
+        ndl:
+          type: integer
+        livenessCheck:
+          type: integer
+        month:
+          type: integer
+    BusinessServicesReport:
+      type: object
+      properties:
+        amls:
+          type: integer
+        businessName:
+          type: string
+        vforms:
+          type: integer
+        vnin:
+          type: integer
+        nin:
+          type: integer
+        bvn:
+          type: integer
+        id:
+          type: string
+        passport:
+          type: integer
+        cac:
+          type: integer
+        tins:
+          type: integer
+        documentCaptures:
+          type: integer
+        address:
+          type: integer
+        adverseMedia:
+          type: integer
+        ndl:
+          type: integer
+        livenessCheck:
+          type: integer
